@@ -1,0 +1,24 @@
+name: fin_calc
+description: FinCalc flutter web application
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  decimal: ^0.3.0
+  cupertino_icons: ^0.1.3
+  flutter_bloc: ^6.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
