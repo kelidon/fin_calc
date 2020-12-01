@@ -150,7 +150,7 @@ class _HomePageState extends State<HomePage> {
                                               )
                                             ],
                                           ),
-                                          OutputWidget(text: roundedResult),
+                                          OutputWidget(text: StringFormatter.beautifyOutput(roundedResult)),
                                         ],
                                       );
                                     },
