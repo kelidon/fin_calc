@@ -4,15 +4,18 @@ class StringFormatter {
 
 
   static String beautifyOutput(String result) {
-    var parts = result.split(".");
-    return parts[1] == "000000"
-        ? reverse(reverse(parts[0])
-            .replaceAllMapped(RegExp(r".{3}"), (match) => "${match.group(0)} "))
-        : [
-            reverse(reverse(parts[0]).replaceAllMapped(
-                RegExp(r".{3}"), (match) => "${match.group(0)} ")),
-            removeEndZeros(parts[1])
-          ].join('.');
+    if(result.contains(".")) {
+      var parts = result.split(".");
+      return parts[1] == "000000"
+          ? reverse(reverse(parts[0])
+          .replaceAllMapped(RegExp(r".{3}"), (match) => "${match.group(0)} "))
+          : [
+        reverse(reverse(parts[0]).replaceAllMapped(
+            RegExp(r".{3}"), (match) => "${match.group(0)} ")),
+        removeEndZeros(parts[1])
+      ].join('.');
+    } else return reverse(reverse(result)
+        .replaceAllMapped(RegExp(r".{3}"), (match) => "${match.group(0)} "));
   }
 
   static String reverse(String str) {

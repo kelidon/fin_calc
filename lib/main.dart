@@ -1,4 +1,5 @@
 import 'package:fin_calc/bloc/calculation_bloc.dart';
+import 'package:fin_calc/bloc/round_bloc.dart';
 import 'package:fin_calc/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,6 +15,9 @@ class Application extends StatelessWidget {
       providers: [
         BlocProvider<CalculationBloc>(
           create: (_) => CalculationBloc(),
+        ),
+        BlocProvider<RoundBloc>(
+          create: (_) => RoundBloc(),
         ),
       ],
       child: MaterialApp(

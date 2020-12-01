@@ -9,35 +9,38 @@ class OperationsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          ButtonWidget(
-            operation: Operations.ADD,
-            blocOperationIndex: blocOperationIndex,
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          ButtonWidget(
-            operation: Operations.DISTRACT,
-            blocOperationIndex: blocOperationIndex,
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          ButtonWidget(
-            operation: Operations.MULTIPLY,
-            blocOperationIndex: blocOperationIndex,
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          ButtonWidget(
-            operation: Operations.DIVIDE,
-            blocOperationIndex: blocOperationIndex,
-          ),
-        ]);
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ButtonWidget(
+              operation: Operations.ADD,
+              blocOperationIndex: blocOperationIndex,
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            ButtonWidget(
+              operation: Operations.DISTRACT,
+              blocOperationIndex: blocOperationIndex,
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            ButtonWidget(
+              operation: Operations.MULTIPLY,
+              blocOperationIndex: blocOperationIndex,
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            ButtonWidget(
+              operation: Operations.DIVIDE,
+              blocOperationIndex: blocOperationIndex,
+            ),
+          ]),
+    );
   }
 }

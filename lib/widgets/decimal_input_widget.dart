@@ -20,23 +20,27 @@ class _DecimalInputWidgetState extends State<DecimalInputWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: _controller,
-      style: TextStyle(height: 1.5),
-      decoration: InputDecoration(
-        labelText: 'Input value',
-        errorText: _isBadInput ? "Bad input" : null,
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      child: TextField(
+        controller: _controller,
+        style: TextStyle(height: 1.5),
+        decoration: InputDecoration(
+          labelText: 'Input value',
+          errorText: _isBadInput ? "Bad input" : null,
+        ),
+        onChanged: (value) {
+          setState(() {
+            _isBadInput = CalculatorUtil.isBadDecimal(value);
+            context.bloc<CalculationBloc>().add(DecimalChanged(
+                widget.blocDecimalIndex,
+                _isBadInput
+                    ? null
+                    : Decimal.parse(_controller.text.replaceAll(',', '.').replaceAll(" ", ""))));
+          });
+        },
       ),
-      onChanged: (value) {
-        setState(() {
-          _isBadInput = CalculatorUtil.isBadDecimal(value);
-          context.bloc<CalculationBloc>().add(DecimalChanged(
-              widget.blocDecimalIndex,
-              _isBadInput
-                  ? null
-                  : Decimal.parse(_controller.text.replaceAll(',', '.'))));
-        });
-      },
     );
   }
 }
